@@ -1,0 +1,116 @@
+<html>
+<body>
+<pre>
+<h1>�Vision Build Log</h1>
+<h2>Tool Versions:</h2>
+IDE-Version: ��Vision V5.37.0.0
+Copyright (C) 2022 ARM Ltd and ARM Germany GmbH. All rights reserved.
+License Information: 11 2516222146@qq.com, 11, LIC=UB4EI-T4T11-NTF3G-V7543-3ITFI-5B55T
+ 
+Tool Versions:
+Toolchain:       MDK-ARM Professional  Version: 5.37.0.0
+Toolchain Path:  D:\Program Files (x86)\Keil5\Core\ARM\ARMCC\Bin
+C Compiler:      Armcc.exe V5.06 update 7 (build 960)
+Assembler:       Armasm.exe V5.06 update 7 (build 960)
+Linker/Locator:  ArmLink.exe V5.06 update 7 (build 960)
+Library Manager: ArmAr.exe V5.06 update 7 (build 960)
+Hex Converter:   FromElf.exe V5.06 update 7 (build 960)
+CPU DLL:         SARMCM3.DLL V5.37.0.0
+Dialog DLL:      DCM.DLL V1.17.5.0
+Target DLL:      STLink\ST-LINKIII-KEIL_SWO.dll V3.0.9.0
+Dialog DLL:      TCM.DLL V1.56.1.0
+ 
+<h2>Project:</h2>
+D:\workspace\stm32_hal_project\design_and_build\move\MDK-ARM\move.uvprojx
+Project File Date:  07/04/2025
+
+<h2>Output:</h2>
+*** Using Compiler 'V5.06 update 7 (build 960)', folder: 'D:\Program Files (x86)\Keil5\Core\ARM\ARMCC\Bin'
+Rebuild target 'move'
+assembling startup_stm32f446xx.s...
+compiling i2c.c...
+compiling gpio.c...
+compiling stm32f4xx_it.c...
+compiling stm32f4xx_hal_i2c_ex.c...
+compiling usart.c...
+compiling tim.c...
+compiling stm32f4xx_hal_msp.c...
+compiling stm32f4xx_hal_flash_ex.c...
+compiling stm32f4xx_hal_rcc.c...
+compiling stm32f4xx_hal_flash.c...
+compiling stm32f4xx_hal_rcc_ex.c...
+compiling main.c...
+../Core/Src/main.c(235): warning:  #223-D: function "abs" declared implicitly
+                 roll_int / 100, abs(roll_int % 100),
+../Core/Src/main.c(249): warning:  #223-D: function "abs" declared implicitly
+                 roll_int / 100, abs(roll_int % 100),
+../Core/Src/main.c(251): warning:  #181-D: argument is incompatible with corresponding format string conversion
+                 yaw_int / 100, abs(yaw_int % 100), duty, gz);//格式化输出字符串
+../Core/Src/main.c(280): warning:  #223-D: function "abs" declared implicitly
+                 roll_int / 100, abs(roll_int % 100),
+../Core/Src/main.c(309): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "char *restrict"
+  					sprintf(time_str, "A:%d.%d; D:%d mm\r\n", ax_ls_point[i].angle/100, ax_ls_point[i].angle%100, ax_ls_point[i].distance); 
+../Core/Src/main.c(415): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+  				gz = gz +0.5;
+../Core/Src/main.c(416): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+  				if(gz <= 1.4 && gz >= -1.4) gz = 0;
+../Core/Src/main.c(417): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+  				gz = gz_last*0.3 + gz*0.7;
+../Core/Src/main.c(417): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+  				gz = gz_last*0.3 + gz*0.7;
+../Core/Src/main.c: 9 warnings, 0 errors
+compiling stm32f4xx_hal_i2c.c...
+compiling stm32f4xx_hal_pwr.c...
+compiling stm32f4xx_hal_cortex.c...
+compiling system_stm32f4xx.c...
+compiling stm32f4xx_hal_pwr_ex.c...
+compiling stm32f4xx_hal_gpio.c...
+compiling stm32f4xx_hal.c...
+compiling stm32f4xx_hal_flash_ramfunc.c...
+compiling stm32f4xx_hal_tim.c...
+compiling stm32f4xx_hal_dma.c...
+compiling stm32f4xx_hal_exti.c...
+compiling stm32f4xx_hal_dma_ex.c...
+compiling stm32f4xx_hal_tim_ex.c...
+compiling stm32f4xx_hal_uart.c...
+compiling pwm.c...
+compiling rader.c...
+compiling mpu6500.c...
+..\Code\mpu6500.c(115): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+      float acc_roll = atan2f(ay, az) * 180.0f / My_PI;
+..\Code\mpu6500.c(116): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+      float acc_pitch = -atan2f(ax, sqrtf(ay * ay + az * az)) * 180.0f / My_PI;
+..\Code\mpu6500.c: 2 warnings, 0 errors
+compiling encoder.c...
+compiling pid.c...
+compiling movement.c...
+linking...
+Program Size: Code=26718 RO-data=702 RW-data=208 ZI-data=4456  
+FromELF: creating hex file...
+"move\move.axf" - 0 Error(s), 11 Warning(s).
+
+<h2>Software Packages used:</h2>
+
+Package Vendor: ARM
+                http://www.keil.com/pack/ARM.CMSIS.5.9.0.pack
+                ARM.CMSIS.5.9.0
+                CMSIS (Common Microcontroller Software Interface Standard)
+   * Component: CORE Version: 5.6.0
+
+Package Vendor: Keil
+                http://www.keil.com/pack/Keil.STM32F4xx_DFP.2.16.0.pack
+                Keil.STM32F4xx_DFP.2.16.0
+                STMicroelectronics STM32F4 Series Device Support, Drivers and Examples
+
+<h2>Collection of Component include folders:</h2>
+  ./RTE/_move
+  D:/Program Files (x86)/Keil5/Pack/ARM/CMSIS/5.9.0/CMSIS/Core/Include
+  D:/Program Files (x86)/Keil5/Pack/Keil/STM32F4xx_DFP/2.16.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include
+
+<h2>Collection of Component Files used:</h2>
+
+   * Component: ARM::CMSIS:CORE:5.6.0
+Build Time Elapsed:  00:05:58
+</pre>
+</body>
+</html>
