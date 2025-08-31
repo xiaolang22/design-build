@@ -1,0 +1,20 @@
+conda activate radarcar
+conda create -n radarcar python=3.9
+python main.py
+conda create -n radarcar python=3.9
+conda create -p D:\conda_envs\radarcar python=3.9
+conda info
+python main.py
+git pull
+python vehicle_control_example.py
+git add vehicle_control.py radar_interface.py
+git commit -m "预测是否碰撞，并控制车辆移动，依赖雷达信息返回接口"
+python main.py
+python visualize_radar_direction.py
+python main.py
+git add maze_edges.json main.py maze_utils.py radar_interface.py vehicle_control.py
+git commit -m "提交json格式"
+git config --global user.email "liutongxin@bupt.edu.cn"
+conda activate D:\Design_and_Build\Code\.env_radarcar
+python a_star_test.py
+git pull
