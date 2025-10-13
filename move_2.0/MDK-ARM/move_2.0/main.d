@@ -26,12 +26,15 @@ move_2.0\main.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_cortex.h
 move_2.0\main.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash.h
 move_2.0\main.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ex.h
 move_2.0\main.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ramfunc.h
+move_2.0\main.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_i2c.h
+move_2.0\main.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_i2c_ex.h
 move_2.0\main.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr.h
 move_2.0\main.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr_ex.h
 move_2.0\main.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h
 move_2.0\main.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h
 move_2.0\main.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h
 move_2.0\main.o: ../Core/Inc/dma.h
+move_2.0\main.o: ../Core/Inc/i2c.h
 move_2.0\main.o: ../Core/Inc/tim.h
 move_2.0\main.o: ../Core/Inc/usart.h
 move_2.0\main.o: ../Core/Inc/gpio.h
@@ -40,5 +43,7 @@ move_2.0\main.o: D:\Program Files (x86)\Keil5\Core\ARM\ARMCC\Bin\..\include\stdi
 move_2.0\main.o: D:\Program Files (x86)\Keil5\Core\ARM\ARMCC\Bin\..\include\math.h
 move_2.0\main.o: ../Code/encoder.h
 move_2.0\main.o: ../Code/my_systick.h
-move_2.0\main.o: ../Code/pwm.h
 move_2.0\main.o: ../Code/rader.h
+move_2.0\main.o: ../Code/mpu6500.h
+move_2.0\main.o: ../Code/pwm.h
+move_2.0\main.o: ../Code/frame.h

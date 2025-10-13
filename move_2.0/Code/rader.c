@@ -1,3 +1,10 @@
+/*
+	本文件移植自思岚C1激光雷达官方示例代码
+	完成下位机与雷达通信 以及 雷达数据帧解析
+	官方示例代码用标准库，使用usart4，本代码用hal库实现
+	串口中断处理函数移植到main.c文件
+*/
+
 #include "main.h"
 #include "usart.h"
 #include "gpio.h"
