@@ -1,0 +1,44 @@
+local_costmap:
+  # 坐标变换
+  global_frame: odom        # 局部代价地图使用odom帧
+  robot_base_frame: base_link
+  transform_tolerance: 0.5  #等待坐标变换发布的超时时间
+
+  # 更新和发布频率
+  update_frequency: 5.0    # 提高局部地图更新频率
+  publish_frequency: 5.0
+
+  static_map: false         # 不使用静态地图
+  rolling_window: true      # 使用滚动窗口
+
+  # 局部地图尺寸
+  width: 3.0               # 局部地图尺寸
+  height: 3.0
+  resolution: 0.05         # 分辨率，#单位m
+
+  plugins:
+    - {name: obstacle_layer,  type: "costmap_2d::ObstacleLayer"}
+    - {name: inflation_layer, type: "costmap_2d::InflationLayer"}
+
+  obstacle_layer:
+    enabled: true
+    combination_method: 1
+    track_unknown_space: true # 认为未知区域是障碍物
+    # 基础障碍物配置，其他文件会覆盖掉
+    obstacle_range: 3.0  # 障碍物检测范围
+    raytrace_range: 4.0  # 障碍物清除范围，清除代价地图中此半径以内的障碍物
+
+    observation_sources: laser_scan_sensor  #使用什么传感器感知障碍物
+    laser_scan_sensor: {
+      sensor_frame: laser_link,
+      data_type: LaserScan,
+      topic: scan,
+      marking: true,
+      clearing: true,
+      inf_is_valid: true
+    }
+
+  inflation_layer:
+    enabled: true
+    cost_scaling_factor: 36.0  # 较大的值，代价值衰减更快，膨胀区域更小
+    inflation_radius: 0.12      #

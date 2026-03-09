@@ -1,0 +1,29 @@
+GlobalPlanner:
+  allow_unknown: true       # 允许在未知区域规划
+
+  default_tolerance: 0.7    # 当目标点是是障碍物，重新搜寻目标点的半径
+
+  use_dijkstra: true        # 使用迪杰斯特拉算法
+
+  # 影响路径平滑度
+  visualize_potential: true #势场可视化
+  publish_potential: true  #势场发布
+  use_quadratic: true
+  use_grid_path: false      # 不使用网格路径，使用梯度下降获得更平滑路径
+
+  old_navfn_behavior: false
+
+  # 全局costmap的膨胀
+  cost_scaling_factor: 5.0  # 代价比例系数，越大则代价值越小
+  inflation_radius: 0.3      # 增加膨胀半径到30cm
+
+  # 用于计算代价
+  lethal_cost: 253  # 致命代价
+  neutral_cost: 50  # 中性代价
+  cost_factor: 0.55
+
+  publish_scale: 100
+
+  # 路径点窗口
+  orientation_mode: 1
+  orientation_window_size: 1

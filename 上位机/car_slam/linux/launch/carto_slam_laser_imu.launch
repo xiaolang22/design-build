@@ -1,0 +1,52 @@
+<launch>
+  <param name="/use_sim_time" value="false" />
+
+  <!-- 发布静态tf -->
+  <!-- 雷达相对于旋转中心x:0.015m y:0m z:0.06m，旋转180度-->
+  <node pkg="tf2_ros" type="static_transform_publisher" name="base_to_laser_link"
+        args="0.015 0 0.06 0 0 1 0 base_link laser_link"/>
+  <!-- IMU相对于旋转中心x:-0.12m y:0m z:0.02m，不旋转-->
+  <node pkg="tf2_ros" type="static_transform_publisher" name="base_to_imu_link"
+            args="-0.12 0 0.02 0 0 0 base_link imu_link"/>
+
+  <!-- 启动小车驱动节点(发布laser、imu话题) -->
+  <node name="car_driver" pkg="car_slam" type="laser_imu_lio_publisher_14.py"/>
+
+  <!-- 启动小车速度控制指令发送节点（接收速度话题） -->
+  <node name="speed_cmd_send" pkg="car_slam" type="speed_cmd_ros.py"/>
+
+<!--    --><!-- 调试：启动小车速度控制指令产生节点（ui） -->
+<!--   <node name="speed_cmd_ui" pkg="car_slam" type="speed_cmd_ui.py"/> -->
+
+  <!-- 启动Cartographer节点 -->
+  <node name="cartographer_node" pkg="cartographer_ros"
+        type="cartographer_node" args="
+          -configuration_directory $(find car_slam)/config/cartographer_lua/laser_imu
+          -configuration_basename carto_laser_imu.lua"
+        output="screen">
+
+    <!-- 只需要映射scan和imu话题，不再需要odom -->
+    <remap from="scan" to="scan" />
+    <remap from="imu" to="imu" />
+
+    <!-- 参数设置 -->
+    <param name="use_odometry" value="false" />
+    <param name="use_imu" value="true" />
+  </node>
+
+  <!-- 占据栅格地图发布节点 -->
+  <node name="cartographer_occupancy_grid_node" pkg="cartographer_ros"
+        type="cartographer_occupancy_grid_node" args="-resolution 0.03" />
+
+<!--   键盘触发地图保存节点 -->
+<!--   <node name="keyboard_map_saver" pkg="car_slam" -->
+<!--         type="keyboard_map_saver.py" output="screen"> -->
+<!--     <param name="save_dir" value="$(find car_slam)/maps" /> -->
+<!--     <param name="save_pbstream" value="true" /> -->
+<!--   </node> -->
+
+<!--   RViz可视化 -->
+<!--   <node name="rviz" pkg="rviz" type="rviz" required="false" -->
+<!--         args="-d $(find car_slam)/config/rviz/carto_1.rviz" /> -->
+
+</launch>

@@ -1,0 +1,11 @@
+<launch>
+  <!-- 启动move_base -->
+  <include file="$(find car_navigation)/launch/move_base.launch" />
+
+  <!-- RViz可视化 -->
+  <node name="rviz" pkg="rviz" type="rviz" required="false"
+        args="-d $(find car_navigation)/config/rviz/navigation_3.rviz" />
+
+  <!-- 如果需要，可以在这里包含你的cartographer启动文件 -->
+  <!-- <include file="$(find my_robot_slam)/launch/cartographer.launch" /> -->
+</launch>

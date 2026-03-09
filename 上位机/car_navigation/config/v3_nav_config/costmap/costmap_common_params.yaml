@@ -1,0 +1,37 @@
+#共用costmap配置文件，用于设置 机器人几何轮廓参数 和 costmap三个层的参数（静态地图层、障碍物层、膨胀层）
+
+# 机器人几何轮廓参数
+footprint: [[0.07, -0.095], [0.07, 0.095], [-0.107, 0.095], [-0.107, -0.095]] #此处假设机器人是方形的
+#robot_radius: 0.102 #假设机器人的圆形的
+
+# costmap三个层的参数（静态地图层、障碍物层、膨胀层）
+#static_layer:
+#  enabled: true
+
+#obstacle_layer:
+#  enabled: true
+#  combination_method: 1
+#  track_unknown_space: true # 认为未知区域是障碍物
+#  # 基础障碍物配置，其他文件会覆盖掉
+#  obstacle_range: 8.0  # 障碍物检测范围
+#  raytrace_range: 3.5  # 障碍物清除范围，清除代价地图中此半径以内的障碍物
+#
+#  observation_sources: laser_scan_sensor  #使用什么传感器感知障碍物
+#  laser_scan_sensor: {
+#    sensor_frame: laser_link,
+#    data_type: LaserScan,
+#    topic: scan,
+#    marking: true,
+#    clearing: true,
+#    inf_is_valid: true
+#  }
+
+# 因为要保证全局规划和局部规划的差异性，inflation_layer分别在两个文件有不同配置
+#inflation_layer:
+#  enabled: true
+##  cost_scaling_factor: 10.0  # 代价比例系数，越大则代价值越小
+##  inflation_radius: 0.15      # 增加膨胀半径到30cm
+
+
+
+
